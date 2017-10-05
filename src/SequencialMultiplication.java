@@ -10,9 +10,9 @@ import java.util.Scanner;
 public class SequencialMultiplication {
 	public static int[][] readFile(String path) throws FileNotFoundException {
 		
-		InputStream e = new FileInputStream(path);
-        InputStreamReader er = new InputStreamReader(e);
-		BufferedReader input = new BufferedReader(er);
+		InputStream file = new FileInputStream(path);
+        InputStreamReader fileReader = new InputStreamReader(file);
+		BufferedReader input = new BufferedReader(fileReader);
 		String size;
 		try {
 			size = input.readLine();
@@ -29,6 +29,9 @@ public class SequencialMultiplication {
 				}
 				
 			}
+			file.close();
+			fileReader.close();
+			input.close();
 			return matrix;
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
