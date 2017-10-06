@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import Multiplication.SequencialMultiplication;
+import Multiplication.SequentialMultiplication;
 
 public class Main {
 	public static int[][] readFile(String path) throws FileNotFoundException {
@@ -55,14 +55,14 @@ public class Main {
 		long min = 1000000000;
 		long[] times = new long[20];
 
-		SequencialMultiplication.multiplyMatrix(matrixA, matrixB, matrixC);
+		SequentialMultiplication.multiplyMatrix(matrixA, matrixB, matrixC);
 
 		
 
 		for (int i = 0; i < 20; i++) {
 			long start = System.currentTimeMillis();
 			
-			SequencialMultiplication.multiplyMatrix(matrixA, matrixB, matrixC);
+			SequentialMultiplication.multiplyMatrix(matrixA, matrixB, matrixC);
 			
 			long total = System.currentTimeMillis() - start;
 			times[i] = total;
@@ -76,10 +76,10 @@ public class Main {
 		}
 
 		System.out.println("\nSequencial!!\n");
-		System.out.println("Media: " + SequencialMultiplication.getMean(times));
-		System.out.println("Desvio padão: " + SequencialMultiplication.getVariance(times));
-		System.out.println("Min:" + min);
+		System.out.println("Media: " + SequentialMultiplication.getMean(times));
+		System.out.println("Desvio padão: " + SequentialMultiplication.getStandardDeviation(times));
 		System.out.println("Max:" + max);
-		
+		System.out.println("Min:" + min);
+			
 	}
 }

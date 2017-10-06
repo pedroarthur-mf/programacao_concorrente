@@ -1,6 +1,6 @@
 package Multiplication;
 
-public class SequencialMultiplication {
+public class SequentialMultiplication {
 	public static int[][] multiplyMatrix (int[][] matrixA, int[][] matrixB, int[][] matrixC){
 		int[][] result = new int[matrixA.length][matrixB.length];
 		
@@ -24,13 +24,13 @@ public class SequencialMultiplication {
 		return total/times.length;
 	}
 	
-	public static double getVariance(long[] times) {
+	public static double getStandardDeviation(long[] times) {
 		double mean = getMean(times);
 		double result = 0;
 		for (long time : times) {
 			result += (time - mean)*(time - mean);
 		}
-		return result/(times.length-1);
+		return Math.sqrt(result/(times.length-1));
 	}
 
 }

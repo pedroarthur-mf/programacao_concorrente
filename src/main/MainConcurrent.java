@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Multiplication.ConcurrentMultiplication;
-import Multiplication.SequencialMultiplication;
+import Multiplication.SequentialMultiplication;
 
 public class MainConcurrent {
 	public static int[][] readFile(String path) throws FileNotFoundException {
@@ -49,7 +49,7 @@ public class MainConcurrent {
 		System.out.println("Iniciando...");
 		String pathA = "matrix/A" + args[0] + "x" + args[0] + ".txt";
 		String pathB = "matrix/B" + args[0] + "x" + args[0] + ".txt";
-
+		
 		int threadsNumber = Integer.parseInt(args[1]);
 		List<Thread> threads = new ArrayList<Thread>();
 
@@ -109,9 +109,9 @@ public class MainConcurrent {
 
 		}
 		System.out.println("\nConcorrent!!\n");
-		System.out.println("Media: " + SequencialMultiplication.getMean(times));
-		System.out.println("Desvio padão: " + SequencialMultiplication.getVariance(times));
-		System.out.println("Min:" + min);
+		System.out.println("Média: " + SequentialMultiplication.getMean(times));
+		System.out.println("Desvio padão: " + SequentialMultiplication.getStandardDeviation(times));
 		System.out.println("Max:" + max);
+		System.out.println("Min:" + min);
 	}
 }
