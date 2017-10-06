@@ -1,16 +1,8 @@
 package Multiplication;
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.Scanner;
 
 public class SequencialMultiplication {
-	public static int[][] multiplyMatrix (int[][] matrixA, int[][] matrixB){
-		int [][] result = new int [matrixA.length][matrixB.length];
+	public static int[][] multiplyMatrix (int[][] matrixA, int[][] matrixB, int[][] matrixC){
+		int[][] result = new int[matrixA.length][matrixB.length];
 		
 		for (int i = 0; i < matrixA.length; i++) {
 			for (int j = 0; j < matrixB[i].length; j++) {

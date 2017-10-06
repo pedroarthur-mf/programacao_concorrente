@@ -1,39 +1,35 @@
 package Multiplication;
+
 public class ConcurrentMultiplication implements Runnable {
 	private int[][] matrixA;
 	private int[][] matrixB;
+	private int[][] matrixC;
 	private int init;
 	private int end;
-	private String name;
-	
-	public ConcurrentMultiplication(String name, int[][] matrixA, int[][] matrixB, int init, int end) {
+
+	public ConcurrentMultiplication(int[][] matrixA, int[][] matrixB, int[][] matrixC, int init, int end) {
 		super();
-		this.name = name;
 		this.matrixA = matrixA;
 		this.matrixB = matrixB;
+		this.matrixC = matrixC;
 		this.init = init;
 		this.end = end;
 	}
 
-	public int[][] multiplyMatrixOperation (int[][] matrixA, int[][] matrixB, int init, int end){
-		int [][] result = new int [matrixA.length][matrixB.length];
-		
-		for (int i = init; i < end; i++) {
-			for (int j = 0; j < matrixB[i].length; j++) {
+	public void multiplyMatrixOperation() {
+		for (int i = this.init; i < this.end; i++) {
+			for (int j = 0; j < this.matrixB[i].length; j++) {
 				int sum = 0;
-				for (int k = 0; k < result.length; k++) {
-					sum += matrixA[i][k]*matrixB[k][j];
+				for (int k = 0; k < matrixC.length; k++) {
+					sum += this.matrixA[i][k] * this.matrixB[k][j];
 				}
-				result[i][j] = sum;
+				matrixC[i][j] = sum;
 			}
 		}
-		System.out.println("Terminando operação em " +  name);
-		return result;
 	}
-	
-	@Override
+
 	public void run() {
-		System.out.println("Iniciando operação na Thread " + name);
-		this.multiplyMatrixOperation(matrixA, matrixB, init, end);
+		this.multiplyMatrixOperation();
 	}
+
 }
